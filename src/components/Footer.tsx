@@ -1,5 +1,5 @@
-import { MapPin, Phone, ArrowUp } from 'lucide-react'
-import { SITE, CONTACTS, NAV_LINKS, PRIMARY_WA } from '../data/korporestData'
+import { MapPin, ArrowUp, ArrowRight } from 'lucide-react'
+import { SITE, CONTACTS, NAV_LINKS } from '../data/korporestData'
 
 function InstagramIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
@@ -7,7 +7,7 @@ function InstagramIcon({ className = 'w-4 h-4' }: { className?: string }) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
@@ -27,47 +27,47 @@ export default function Footer() {
   const handleNavClick = (href: string) => {
     const el = document.querySelector(href)
     if (el) {
-      const offset = 76
+      const offset = 80
       const top = el.getBoundingClientRect().top + window.scrollY - offset
       window.scrollTo({ top, behavior: 'smooth' })
     }
   }
 
   return (
-    <footer className="bg-carbon-900 text-white pt-20 pb-12 border-t border-carbon-800 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <footer className="bg-carbon-900 text-white pt-20 pb-12 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-coral-400/6 rounded-full blur-[6rem] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative">
+
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-          
-          {/* Brand & Purpose (5 cols) */}
+
+          {/* Brand */}
           <div className="lg:col-span-5 space-y-5">
             <div className="flex flex-col leading-none">
-              <span className="text-2xl font-extrabold tracking-tight text-white">
+              <span className="font-serif text-2xl font-bold tracking-tight text-white">
                 KORPOREST
               </span>
-              <span className="text-xs font-semibold text-coral-400 tracking-widest uppercase mt-1">
+              <span className="text-[0.6875rem] font-semibold text-coral-400 tracking-[0.2em] uppercase mt-1.5">
                 Pergamino · Kinesiología y Fisiatría
               </span>
             </div>
 
-            <p className="text-sm text-white/60 leading-relaxed max-w-sm font-normal">
+            <p className="text-sm text-white/55 leading-[1.7] max-w-sm">
               Centro de Kinesiología y Fisiatría dirigido por las licenciadas Gisela Pou y Vanesa Pou. Compromiso con la rehabilitación integral y la calidad de vida de cada paciente.
             </p>
 
-            {/* Address badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-white/80">
+            <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white/75">
               <MapPin className="w-4 h-4 text-coral-400 shrink-0" />
               <span>{SITE.address}</span>
             </div>
 
-            {/* Social */}
             <div className="pt-2">
               <a
                 href={SITE.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-white/80 hover:text-coral-400 transition-colors bg-white/5 hover:bg-white/10 px-4 py-2.5 rounded-full border border-white/10"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-white/75 hover:text-coral-400 transition-colors bg-white/5 hover:bg-white/10 px-4 py-2.5 rounded-full border border-white/10"
               >
                 <InstagramIcon className="w-4 h-4 text-coral-400" />
                 <span>{SITE.instagram}</span>
@@ -75,12 +75,12 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Navigation (3 cols) */}
+          {/* Navigation */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-coral-400">
+            <h4 className="text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-coral-400">
               Navegación
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <a
@@ -89,7 +89,7 @@ export default function Footer() {
                       e.preventDefault()
                       handleNavClick(link.href)
                     }}
-                    className="text-sm text-white/65 hover:text-coral-400 transition-colors inline-block"
+                    className="text-sm text-white/55 hover:text-coral-400 transition-colors duration-300 inline-block"
                   >
                     {link.label}
                   </a>
@@ -98,12 +98,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Professional Lines (4 cols) */}
+          {/* WhatsApp Lines */}
           <div className="lg:col-span-4 space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-coral-400">
+            <h4 className="text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-coral-400">
               Atención y Turnos
             </h4>
-            <p className="text-xs text-white/60 leading-relaxed">
+            <p className="text-xs text-white/55 leading-relaxed">
               Coordinamos consultas directamente por WhatsApp con cada profesional:
             </p>
 
@@ -111,52 +111,45 @@ export default function Footer() {
               {CONTACTS.map((c) => (
                 <a
                   key={c.id}
-                  href={c.waUrl}
+                  href={`${c.waUrl}?text=${encodeURIComponent(`Hola ${c.id === 'gisela' ? 'Gisela' : 'Vanesa'}! Quisiera consultar por un turno en KORPOREST.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/90 hover:text-white transition-all group"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/90 hover:text-white transition-all duration-300 group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-coral-500/20 text-coral-400 flex items-center justify-center">
-                      <Phone className="w-3.5 h-3.5" />
+                    <div className="w-8 h-8 rounded-lg bg-coral-400/20 text-coral-400 flex items-center justify-center font-serif text-sm font-bold">
+                      {c.id === 'gisela' ? 'G' : 'V'}
                     </div>
                     <div>
-                      <div className="text-xs font-medium text-white/50">
-                        {c.label}
+                      <div className="text-[0.6875rem] font-medium text-white/45">
+                        {c.id === 'gisela' ? 'Lic. Gisela Pou' : 'Lic. Vanesa Pou'}
                       </div>
                       <div className="text-sm font-semibold tracking-wide">
                         {c.display}
                       </div>
                     </div>
                   </div>
-                  <span className="text-xs text-coral-400 group-hover:translate-x-1 transition-transform">
-                    &rarr;
-                  </span>
+                  <ArrowRight className="w-3.5 h-3.5 text-coral-400 group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
               ))}
             </div>
           </div>
-
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
           <p>
             © {new Date().getFullYear()} KORPOREST Pergamino. Todos los derechos reservados.
           </p>
-
-          <div className="flex items-center gap-6">
-            <button
-              type="button"
-              onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 hover:text-coral-400 transition-colors cursor-pointer text-white/60"
-            >
-              <span>Volver arriba</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-1.5 hover:text-coral-400 transition-colors cursor-pointer text-white/50"
+          >
+            <span>Volver arriba</span>
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
         </div>
-
       </div>
     </footer>
   )

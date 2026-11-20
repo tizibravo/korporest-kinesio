@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MessageCircle, X, Phone, Sparkles } from 'lucide-react'
+import { MessageCircle, X } from 'lucide-react'
 import { CONTACTS, SITE } from '../data/korporestData'
 
 export default function WhatsAppFloat() {
@@ -7,23 +7,24 @@ export default function WhatsAppFloat() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-auto">
-      
+
       {/* Popover Card */}
       {isOpen && (
-        <div className="mb-3 w-80 max-w-[calc(100vw-2rem)] bg-white rounded-3xl shadow-2xl border border-coral-100 overflow-hidden animate-fade-up">
-          
+        <div className="mb-3 w-80 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-sand-200/40 overflow-hidden animate-fade-up luminous-border">
+
           {/* Header */}
-          <div className="bg-coral-500 text-white p-5">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-white" />
+          <div className="bg-coral-400 text-white p-5 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-white/8 rounded-full blur-2xl" />
+            <div className="flex items-center justify-between relative">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
+                  <MessageCircle className="w-4.5 h-4.5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold leading-tight">
+                  <h3 className="text-sm font-semibold leading-tight">
                     KORPOREST Pergamino
                   </h3>
-                  <p className="text-[11px] text-white/80">
+                  <p className="text-[11px] text-white/75 mt-0.5">
                     Atención por WhatsApp
                   </p>
                 </div>
@@ -37,8 +38,8 @@ export default function WhatsAppFloat() {
                 <X className="w-4 h-4" />
               </button>
             </div>
-            <p className="text-xs text-white/90 mt-3 leading-relaxed">
-              Hola 👋 ¿Con cuál de nuestras especialistas te gustaría comunicarte?
+            <p className="text-xs text-white/85 mt-3.5 leading-relaxed relative">
+              Hola, ¿con cuál de nuestras especialistas te gustaría comunicarte?
             </p>
           </div>
 
@@ -49,10 +50,7 @@ export default function WhatsAppFloat() {
               const area = isGisela
                 ? 'Traumatología & Kinesiopilates'
                 : 'Flebolinfática & Oncológica'
-              const customMessage = `Hola ${c.label.replace(
-                'WhatsApp ',
-                ''
-              )}! Me comunico desde la web de KORPOREST para hacer una consulta.`
+              const customMessage = `Hola ${isGisela ? 'Gisela' : 'Vanesa'}! Me comunico desde la web de KORPOREST para hacer una consulta.`
 
               return (
                 <a
@@ -60,23 +58,23 @@ export default function WhatsAppFloat() {
                   href={`${c.waUrl}?text=${encodeURIComponent(customMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-2xl bg-coral-50/50 hover:bg-coral-500 border border-coral-100/80 hover:border-coral-500 text-carbon-900 hover:text-white transition-all duration-200 group"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-blush-50/50 hover:bg-coral-400 border border-blush-100/70 hover:border-coral-400 text-carbon-900 hover:text-white transition-all duration-300 group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-white group-hover:bg-white/20 flex items-center justify-center text-coral-500 group-hover:text-white shadow-xs">
-                      <Phone className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-lg bg-white group-hover:bg-white/20 flex items-center justify-center text-coral-500 group-hover:text-white font-serif font-bold text-sm shadow-sm transition-colors">
+                      {isGisela ? 'G' : 'V'}
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-coral-600 group-hover:text-white transition-colors">
-                        {c.label.replace('WhatsApp ', '')}
+                      <div className="text-xs font-semibold text-coral-500 group-hover:text-white transition-colors">
+                        {isGisela ? 'Lic. Gisela Pou' : 'Lic. Vanesa Pou'}
                       </div>
-                      <div className="text-[11px] text-carbon-800/60 group-hover:text-white/80 transition-colors">
+                      <div className="text-[11px] text-carbon-700/55 group-hover:text-white/80 transition-colors">
                         {area}
                       </div>
                     </div>
                   </div>
-                  <span className="text-xs font-bold text-coral-500 group-hover:text-white">
-                    &rarr;
+                  <span className="text-xs font-bold text-coral-400 group-hover:text-white">
+                    →
                   </span>
                 </a>
               )
@@ -84,7 +82,7 @@ export default function WhatsAppFloat() {
           </div>
 
           {/* Footer note */}
-          <div className="px-4 py-2.5 bg-gray-50 border-t border-gray-100 text-[10px] text-carbon-800/50 text-center">
+          <div className="px-4 py-2.5 bg-ivory-200 border-t border-sand-200/30 text-[10px] text-carbon-700/45 text-center">
             {SITE.address}
           </div>
         </div>
@@ -95,11 +93,11 @@ export default function WhatsAppFloat() {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Abrir WhatsApp Korporest"
-        className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/35 hover:shadow-xl hover:shadow-emerald-500/45 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+        className="relative group flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
       >
-        {/* Pulsing indicator ring */}
+        {/* Subtle pulse ring */}
         {!isOpen && (
-          <span className="absolute -inset-1 rounded-full bg-emerald-400 opacity-30 animate-ping pointer-events-none" />
+          <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-40 animate-pulse-ring pointer-events-none" />
         )}
 
         {isOpen ? (
@@ -108,7 +106,6 @@ export default function WhatsAppFloat() {
           <MessageCircle className="w-6 h-6 fill-current" />
         )}
       </button>
-
     </div>
   )
 }

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Phone } from 'lucide-react'
-import { NAV_LINKS, SITE, CONTACTS, PRIMARY_WA } from '../data/korporestData'
+import { Menu, X, Calendar } from 'lucide-react'
+import { NAV_LINKS, SITE, CONTACTS } from '../data/korporestData'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => setScrolled(window.scrollY > 24)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -16,7 +16,7 @@ export default function Navbar() {
     setIsOpen(false)
     const el = document.querySelector(href)
     if (el) {
-      const offset = 72
+      const offset = 80
       const top = el.getBoundingClientRect().top + window.scrollY - offset
       window.scrollTo({ top, behavior: 'smooth' })
     }
@@ -24,59 +24,59 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-coral-100'
-          : 'bg-white/80 backdrop-blur-sm'
+          ? 'bg-white/80 backdrop-blur-xl border-b border-sand-200/60 shadow-[0_4px_30px_-10px_rgba(30,30,36,0.08)]'
+          : 'bg-white/40 backdrop-blur-md border-b border-transparent'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-18">
+      <nav className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a
             href="#inicio"
             onClick={(e) => { e.preventDefault(); handleNavClick('#inicio') }}
             className="flex flex-col leading-none group"
           >
-            <span className="text-xl font-extrabold tracking-tight text-carbon-900 group-hover:text-coral-500 transition-colors">
+            <span className="text-lg sm:text-xl font-extrabold tracking-tight text-carbon-900 group-hover:text-coral-400 transition-colors duration-300 font-jakarta">
               KORPOREST
             </span>
-            <span className="text-xs font-medium text-beige-300 tracking-widest uppercase">
-              Pergamino
+            <span className="text-[0.625rem] font-medium text-sand-500 tracking-[0.2em] uppercase mt-0.5">
+              Pergamino · Kinesiología
             </span>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-7">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
-                className="text-sm font-medium text-carbon-800 hover:text-coral-500 transition-colors relative group"
+                className="text-sm font-medium text-carbon-700 hover:text-coral-400 transition-colors duration-300 relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-coral-400 group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1.5 left-0 w-0 h-px bg-coral-400 group-hover:w-full transition-all duration-400 ease-out" />
               </a>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <a
-              href={PRIMARY_WA}
+              href={`https://wa.me/${CONTACTS[0].waNumber}?text=${encodeURIComponent('Hola! Quisiera reservar un turno o hacer una consulta en KORPOREST.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-coral-500 hover:bg-coral-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-coral-400/30 hover:scale-105"
+              className="inline-flex items-center gap-2 bg-coral-400 hover:bg-coral-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-md shadow-coral-400/20 hover:shadow-lg hover:shadow-coral-400/30 hover:-translate-y-0.5"
             >
-              <Phone size={14} />
+              <Calendar className="w-4 h-4" />
               Reservar Turno
             </a>
           </div>
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-carbon-800 hover:bg-coral-50 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-carbon-700 hover:bg-blush-50 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Abrir menú"
           >
@@ -87,32 +87,40 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        className={`lg:hidden transition-all duration-400 overflow-hidden ${
+          isOpen ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-white border-t border-coral-100 px-4 pb-4 pt-2 space-y-1">
+        <div className="bg-white/95 backdrop-blur-xl border-t border-sand-200/50 px-5 pb-6 pt-3 space-y-1">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
-              className="block py-2.5 px-3 text-sm font-medium text-carbon-800 hover:text-coral-500 hover:bg-coral-50 rounded-lg transition-colors"
+              className="block py-3 px-4 text-sm font-medium text-carbon-700 hover:text-coral-400 hover:bg-blush-50/60 rounded-xl transition-colors duration-200"
             >
               {link.label}
             </a>
           ))}
-          <div className="pt-2 space-y-2">
+          <div className="pt-3 space-y-2.5">
+            <a
+              href={`https://wa.me/${CONTACTS[0].waNumber}?text=${encodeURIComponent('Hola! Quisiera reservar un turno o hacer una consulta en KORPOREST.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 justify-center bg-coral-400 text-white py-3 rounded-full text-sm font-semibold shadow-md shadow-coral-400/20"
+            >
+              <Calendar className="w-4 h-4" />
+              Reservar Turno
+            </a>
             {CONTACTS.map((c) => (
               <a
                 key={c.id}
-                href={c.waUrl}
+                href={`${c.waUrl}?text=${encodeURIComponent(`Hola ${c.id === 'gisela' ? 'Gisela' : 'Vanesa'}! Quisiera consultar por un turno en KORPOREST.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 justify-center bg-coral-500 text-white py-2.5 rounded-full text-sm font-semibold"
+                className="flex items-center gap-2 justify-center bg-blush-50 text-coral-500 border border-blush-100 py-3 rounded-full text-sm font-semibold"
               >
-                <Phone size={14} />
-                {c.label}
+                {c.id === 'gisela' ? 'Gisela Pou' : 'Vanesa Pou'} · {c.display}
               </a>
             ))}
           </div>
