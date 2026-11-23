@@ -1,5 +1,5 @@
 import { Calendar, ArrowDown, MapPin, ShieldCheck, HeartHandshake, Sparkles } from 'lucide-react'
-import { SITE, CONTACTS } from '../data/korporestData'
+import { SITE, CONTACTS, IMAGE_ASSETS } from '../data/korporestData'
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -121,7 +121,17 @@ export default function Hero() {
             <div className="relative mx-auto max-w-md lg:max-w-none">
 
               {/* Editorial showcase card */}
-              <div className="relative bg-white/90 backdrop-blur-sm rounded-[1.75rem] p-7 sm:p-8 border border-sand-200/50 shadow-2xl shadow-coral-400/8">
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-[1.75rem] p-5 sm:p-6 border border-sand-200/50 shadow-2xl shadow-coral-400/8">
+                <div className="relative mb-6 overflow-hidden rounded-2xl border border-[#7AC7D4]/30 shadow-lg">
+                  <img
+                    src={IMAGE_ASSETS.fachadaPrincipal}
+                    alt="Fachada del consultorio KORPOREST"
+                    className="h-56 sm:h-64 w-full object-cover"
+                  />
+                  <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1.5 text-[0.6875rem] font-semibold tracking-wide text-carbon-700 shadow-sm">
+                    Merced 1271 · Pergamino
+                  </span>
+                </div>
 
                 {/* Card header */}
                 <div className="flex items-center justify-between border-b border-sand-200/40 pb-5 mb-6">

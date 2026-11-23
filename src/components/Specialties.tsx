@@ -14,7 +14,7 @@ import {
   Wind,
   AlertCircle,
 } from 'lucide-react'
-import { SPECIALTIES, PRIMARY_WA } from '../data/korporestData'
+import { SPECIALTIES, PRIMARY_WA, IMAGE_ASSETS } from '../data/korporestData'
 import Reveal from './Reveal'
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -114,6 +114,14 @@ export default function Specialties() {
               <Reveal key={spec.id} delay={(i % 4) * 80}>
                 <div className="group relative bg-white rounded-2xl p-6 sm:p-7 border border-sand-200/40 hover:border-coral-300 shadow-sm hover:shadow-xl hover:shadow-coral-400/8 transition-all duration-500 hover:-translate-y-1 flex flex-col justify-between h-full">
                   <div>
+                    {spec.id === 'kinesiopilates' && (
+                      <img
+                        src={IMAGE_ASSETS.pilatesReformer}
+                        alt="Pilates en Reformer"
+                        className="mb-5 aspect-video w-full rounded-xl object-cover"
+                      />
+                    )}
+
                     {/* Icon circle + badge */}
                     <div className="flex items-center justify-between mb-5">
                       <div

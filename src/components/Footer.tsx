@@ -1,5 +1,5 @@
 import { MapPin, ArrowUp, ArrowRight } from 'lucide-react'
-import { SITE, CONTACTS, NAV_LINKS } from '../data/korporestData'
+import { SITE, CONTACTS, NAV_LINKS, IMAGE_ASSETS } from '../data/korporestData'
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -27,10 +27,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-5 space-y-5">
             <div className="flex flex-col leading-none">
-              <span className="font-serif text-2xl font-bold tracking-tight text-white">
-                KORPOREST
-              </span>
-              <span className="text-[0.6875rem] font-semibold text-coral-400 tracking-[0.2em] uppercase mt-1.5">
+              <img
+                src={IMAGE_ASSETS.logo}
+                alt="KORPOREST"
+                className="h-12 w-auto max-w-[15rem] object-cover object-left rounded-md bg-white"
+              />
+              <span className="text-[0.6875rem] font-semibold text-[#7AC7D4] tracking-[0.2em] uppercase mt-1.5">
                 Pergamino · Kinesiología y Fisiatría
               </span>
             </div>

@@ -3,6 +3,14 @@
 // Edit this file to update all site content
 // ============================================================
 
+export const IMAGE_ASSETS = {
+  logo: '/images/Logo-korporest.jpg',
+  fachadaPrincipal: '/images/Fachada_principal.jpg',
+  fachadaFrente: '/images/Fachada_frente.jpg',
+  pilatesReformer: '/images/Pilates_reformer.jpg',
+  vendasTraccionCorta: '/images/Vendas-traccion-corta.jpg',
+};
+
 export const SITE = {
   name: 'KORPOREST',
   location: 'Pergamino',
@@ -131,6 +139,7 @@ export const PRODUCTS = [
     description:
       'Vendas de baja elasticidad indicadas para el tratamiento descongestivo del linfedema y la terapia compresiva. Disponibles en distintos anchos.',
     icon: 'Layers',
+    image: IMAGE_ASSETS.vendasTraccionCorta,
     waMessage: 'Hola! Me gustaría consultar sobre disponibilidad y tallas de las Vendas de Tracción Corta.',
   },
   {

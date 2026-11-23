@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, Calendar } from 'lucide-react'
-import { NAV_LINKS, SITE, CONTACTS } from '../data/korporestData'
+import { NAV_LINKS, CONTACTS, IMAGE_ASSETS } from '../data/korporestData'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -38,10 +38,12 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); handleNavClick('#inicio') }}
             className="flex flex-col leading-none group"
           >
-            <span className="text-lg sm:text-xl font-extrabold tracking-tight text-carbon-900 group-hover:text-coral-400 transition-colors duration-300 font-jakarta">
-              KORPOREST
-            </span>
-            <span className="text-[0.625rem] font-medium text-sand-500 tracking-[0.2em] uppercase mt-0.5">
+            <img
+              src={IMAGE_ASSETS.logo}
+              alt="KORPOREST"
+              className="h-10 md:h-12 w-auto max-w-[12rem] object-cover object-left rounded-md"
+            />
+            <span className="text-[0.625rem] font-medium text-[#7AC7D4] tracking-[0.2em] uppercase mt-0.5">
               Pergamino · Kinesiología
             </span>
           </a>

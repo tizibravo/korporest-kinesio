@@ -9,7 +9,7 @@ import {
   AlertCircle,
   ArrowRight,
 } from 'lucide-react'
-import { SITE, CONTACTS, CONTACT_TOPICS } from '../data/korporestData'
+import { SITE, CONTACTS, CONTACT_TOPICS, IMAGE_ASSETS } from '../data/korporestData'
 import Reveal from './Reveal'
 
 interface FormData {
@@ -125,6 +125,16 @@ export default function Contact() {
                     Atención presencial en consultorio acondicionado en Pergamino.
                   </p>
                 </div>
+              </div>
+
+              <div className="h-px bg-sand-200/40" />
+
+              <div className="overflow-hidden rounded-xl border border-[#7AC7D4]/25 shadow-sm">
+                <img
+                  src={IMAGE_ASSETS.fachadaFrente}
+                  alt="Entrada del consultorio KORPOREST"
+                  className="aspect-video w-full object-cover"
+                />
               </div>
 
               <div className="h-px bg-sand-200/40" />
