@@ -11,8 +11,6 @@ export const SITE = {
   description:
     'Centro de Kinesiología y Fisiatría dirigido por las licenciadas Gisela Pou y Vanesa Pou, con años de trayectoria en rehabilitación integral del paciente.',
   address: 'Merced 1271 · Pergamino · Buenos Aires',
-  instagram: '@korporest.pergamino',
-  instagramUrl: 'https://www.instagram.com/korporest.pergamino',
   googleReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJeZOc9021uZURpVkXxnUEVJQ',
 };
 
@@ -52,7 +50,7 @@ export const TEAM = [
     title: 'Licenciada en Kinesiología y Fisiatría',
     area: 'Rehabilitación Vascular, Flebolinfática y Oncológica',
     description:
-      'Especialista en rehabilitación vascular, flebolinfática y oncológica. Brinda una atención personalizada y centrada en la persona, con técnicas específicas para el manejo del linfedema y el acompañamiento en procesos oncológicos.',
+      'Especialista en rehabilitación vascular, flebolinfática y oncológica. Acompaña al paciente en las tres etapas del proceso oncológico: prehabilitación antes del tratamiento, durante el mismo y en el postoperatorio, con técnicas específicas para el manejo del linfedema y la recuperación funcional. La derivación temprana apenas recibido el diagnóstico médico es clave para una mejor evolución.',
     color: 'beige',
   },
 ];
@@ -87,8 +85,9 @@ export const SPECIALTIES = [
     icon: 'Shield',
     title: 'Kinesiología Oncológica',
     description:
-      'Acompañamiento kinesiológico especializado durante y después del tratamiento oncológico, con manejo del linfedema oncológico y recuperación de la funcionalidad.',
+      'Tratamiento especializado en las tres etapas del proceso oncológico: prehabilitación antes del tratamiento, durante el mismo y después. Incluye manejo del linfedema oncológico y recuperación de la funcionalidad. La derivación temprana apenas recibido el diagnóstico médico es fundamental para optimizar resultados.',
     area: 'vanesa',
+    highlight: true,
   },
   {
     id: 'drenaje',
@@ -126,31 +125,58 @@ export const SPECIALTIES = [
 
 export const PRODUCTS = [
   {
-    id: 'lauda-socks',
-    name: 'Lauda Socks',
-    subtitle: 'Medias de Compresión',
+    id: 'vendas-corta',
+    name: 'Vendas de Tracción Corta',
+    subtitle: 'Tratamiento de Linfedema',
     description:
-      'Medias de compresión terapéutica de la marca Lauda. Indicadas para el tratamiento y prevención de insuficiencia venosa, linfedema y en el postoperatorio vascular.',
+      'Vendas de baja elasticidad indicadas para el tratamiento descongestivo del linfedema y la terapia compresiva. Disponibles en distintos anchos.',
     icon: 'Layers',
-    waMessage: 'Hola! Me gustaría consultar sobre disponibilidad y tallas de las Medias de Compresión Lauda Socks.',
+    waMessage: 'Hola! Me gustaría consultar sobre disponibilidad y tallas de las Vendas de Tracción Corta.',
   },
   {
-    id: 'vendas',
-    name: 'Vendas Elásticas',
-    subtitle: 'Insumos de Vendaje',
+    id: 'vendas-larga',
+    name: 'Vendas de Tracción Larga',
+    subtitle: 'Vendas Elásticas',
     description:
-      'Vendas elásticas de alta calidad para vendaje compresivo, kinetaping y soporte articular. Disponibles en distintos anchos y materiales.',
+      'Vendas elásticas de alta elasticidad para vendaje compresivo, soporte articular y tratamiento vascular. Disponibles en distintos anchos y materiales.',
     icon: 'Bandage',
-    waMessage: 'Hola! Me gustaría consultar sobre disponibilidad de Vendas Elásticas en KORPOREST.',
+    waMessage: 'Hola! Me gustaría consultar sobre disponibilidad de las Vendas de Tracción Larga (elásticas).',
   },
   {
-    id: 'guantes',
-    name: 'Guantes Descartables',
-    subtitle: 'Insumos Clínicos',
+    id: 'lauda-socks',
+    name: 'Medias Lauda Socks',
+    subtitle: 'Con y Sin Puntera',
     description:
-      'Guantes de látex y nitrilo descartables de uso clínico. Disponibles en diferentes tallas para garantizar seguridad e higiene en cada procedimiento.',
-    icon: 'Hand',
-    waMessage: 'Hola! Me gustaría consultar sobre disponibilidad de Guantes Descartables en KORPOREST.',
+      'Medias de compresión terapéutica de la marca Lauda, disponibles con y sin puntera. Indicadas para insuficiencia venosa, linfedema y postoperatorio vascular.',
+    icon: 'Layers',
+    waMessage: 'Hola! Me gustaría consultar sobre disponibilidad y tallas de las Medias Lauda Socks (con y sin puntera).',
+  },
+  {
+    id: 'sox',
+    name: 'Medias SOX',
+    subtitle: 'Clásicas y Deportivas',
+    description:
+      'Medias de compresión de la línea SOX en sus versiones clásicas y deportivas. Indicadas para uso diario, actividad física y prevención vascular.',
+    icon: 'Activity',
+    waMessage: 'Hola! Me gustaría consultar sobre disponibilidad y modelos de las Medias SOX (clásicas y deportivas).',
+  },
+  {
+    id: 'tiras-elongacion',
+    name: 'Tiras de Elongación',
+    subtitle: 'Material Terapéutico',
+    description:
+      'Tiras para ejercicios de elongación y estiramiento terapéutico. Indicadas para rehabilitación, prevención y complemento del tratamiento kinésico.',
+    icon: 'Stretch',
+    waMessage: 'Hola! Me gustaría consultar sobre disponibilidad de las Tiras de Elongación.',
+  },
+  {
+    id: 'taping',
+    name: 'Taping Neuromuscular',
+    subtitle: 'Vendaje Funcional',
+    description:
+      'Tiras de vendaje neuromuscular para soporte articular, reducción del dolor, mejora de la propiocepción y facilitación del movimiento sin limitar el rango articular.',
+    icon: 'Zap',
+    waMessage: 'Hola! Me gustaría consultar sobre disponibilidad del Taping Neuromuscular.',
   },
 ];
 
@@ -159,8 +185,30 @@ export const NAV_LINKS = [
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Especialidades', href: '#especialidades' },
   { label: 'Productos', href: '#productos' },
+  { label: 'Prevención', href: '#prevencion' },
   { label: 'Reseñas', href: '#resenas' },
   { label: 'Contacto', href: '#contacto' },
+];
+
+export const PREVENTION_GUIDES = [
+  {
+    id: 'vascular-linfatico',
+    title: 'Cuidado Vascular y Linfático',
+    summary: 'Guía de cuidados y prevención para pacientes con patologías vasculares y linfáticas.',
+    available: false,
+  },
+  {
+    id: 'prehabilitacion-oncologica',
+    title: 'Prehabilitación y Acompañamiento Oncológico',
+    summary: 'Guía de preparación y acompañamiento kinesiológico en el proceso oncológico.',
+    available: false,
+  },
+  {
+    id: 'prevencion-postural',
+    title: 'Prevención Postural y Traumatológica',
+    summary: 'Guía de hábitos posturales y prevención de lesiones musculo-esqueléticas.',
+    available: false,
+  },
 ];
 
 export const CONTACT_TOPICS = [
@@ -173,5 +221,6 @@ export const CONTACT_TOPICS = [
   'Prevención de Lesiones',
   'Diagnóstico Kinesiológico',
   'Productos e Insumos',
+  'Prevención y Patologías',
   'Consulta General / Turnos',
 ];

@@ -12,24 +12,6 @@ import {
 import { SITE, CONTACTS, CONTACT_TOPICS } from '../data/korporestData'
 import Reveal from './Reveal'
 
-function InstagramIcon({ className = 'w-5 h-5' }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  )
-}
-
 interface FormData {
   name: string
   topic: string
@@ -147,30 +129,6 @@ export default function Contact() {
 
               <div className="h-px bg-sand-200/40" />
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-blush-50 text-coral-400 flex items-center justify-center shrink-0 border border-blush-100">
-                  <InstagramIcon className="w-5.5 h-5.5" />
-                </div>
-                <div>
-                  <h3 className="text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-carbon-700/50">
-                    Red Social Oficial
-                  </h3>
-                  <a
-                    href={SITE.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block text-base font-bold text-coral-500 hover:text-coral-600 transition-colors mt-1 underline decoration-coral-200 underline-offset-4"
-                  >
-                    {SITE.instagram}
-                  </a>
-                  <p className="text-xs text-carbon-700/55 mt-1.5 leading-relaxed">
-                    Seguinos en Instagram para conocer más sobre nuestro centro.
-                  </p>
-                </div>
-              </div>
-
-              <div className="h-px bg-sand-200/40" />
-
               <div className="flex items-start gap-3 p-4 rounded-2xl bg-blush-50/50 border border-blush-100/60">
                 <Clock className="w-5 h-5 text-coral-400 shrink-0 mt-0.5" />
                 <div className="text-xs text-carbon-700/70 leading-relaxed">
@@ -200,9 +158,8 @@ export default function Contact() {
                     className="flex items-center justify-between p-4 rounded-2xl bg-blush-50/40 hover:bg-coral-400 border border-blush-100/70 hover:border-coral-400 text-carbon-900 hover:text-white transition-all duration-300 group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-white group-hover:bg-white/20 flex items-center justify-center text-coral-500 group-hover:text-white shadow-sm transition-colors">
-                        <InstagramIcon className="w-4 h-4 opacity-0" />
-                        <span className="absolute">{c.id === 'gisela' ? 'G' : 'V'}</span>
+                      <div className="w-9 h-9 rounded-xl bg-white group-hover:bg-white/20 flex items-center justify-center text-coral-500 group-hover:text-white font-serif font-bold text-sm shadow-sm transition-colors">
+                        {c.id === 'gisela' ? 'G' : 'V'}
                       </div>
                       <div>
                         <div className="text-xs font-semibold text-coral-500 group-hover:text-white transition-colors">

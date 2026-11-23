@@ -19,12 +19,22 @@ const PRODUCT_ICONS: Record<string, React.ComponentType<{ className?: string }>>
       <circle cx="15" cy="11" r="1" />
     </svg>
   ),
-  Hand: (props: { className?: string }) => (
+  Activity: (props: { className?: string }) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={props.className}>
-      <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-      <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" />
-      <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
-      <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+      <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.5.5 0 0 1-.96 0L9.68 3.18a.5.5 0 0 0-.96 0l-2.35 8.36A2 2 0 0 1 4.45 13H2" />
+    </svg>
+  ),
+  Stretch: (props: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={props.className}>
+      <path d="M5 12h14" />
+      <path d="M12 5v14" />
+      <path d="m8 8 4-4 4 4" />
+      <path d="m16 16-4 4-4-4" />
+    </svg>
+  ),
+  Zap: (props: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={props.className}>
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
     </svg>
   ),
 }
@@ -61,19 +71,19 @@ export default function Products() {
         </Reveal>
 
         {/* Products Grid — Boutique catalog */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PRODUCTS.map((product, i) => {
             const ProductIcon = PRODUCT_ICONS[product.icon] || PRODUCT_ICONS.Layers
 
             return (
-              <Reveal key={product.id} delay={i * 120}>
+              <Reveal key={product.id} delay={(i % 3) * 100}>
                 <div className="group relative bg-white rounded-2xl border border-sand-200/40 hover:border-coral-200 shadow-sm hover:shadow-2xl hover:shadow-coral-400/8 transition-all duration-500 hover:-translate-y-1 flex flex-col h-full overflow-hidden">
                   {/* Top accent strip */}
                   <div className="h-1 bg-gradient-to-r from-coral-300 via-coral-400 to-sand-300" />
 
-                  <div className="p-7 sm:p-8 flex-1 flex flex-col">
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col">
                     {/* Category pill & icon */}
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center justify-between mb-5">
                       <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.15em] text-coral-500 bg-blush-50 px-3 py-1.5 rounded-full border border-blush-100">
                         {product.subtitle}
                       </span>
@@ -83,17 +93,17 @@ export default function Products() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-serif text-2xl font-bold text-carbon-900 group-hover:text-coral-500 transition-colors duration-300">
+                    <h3 className="font-serif text-xl font-bold text-carbon-900 group-hover:text-coral-500 transition-colors duration-300">
                       {product.name}
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-3 text-sm text-carbon-700/65 leading-[1.7] flex-1">
+                    <p className="mt-2.5 text-sm text-carbon-700/65 leading-[1.7] flex-1">
                       {product.description}
                     </p>
 
                     {/* Bullet benefits */}
-                    <div className="mt-6 pt-5 border-t border-sand-200/30 space-y-2.5">
+                    <div className="mt-5 pt-4 border-t border-sand-200/30 space-y-2">
                       <div className="flex items-center gap-2 text-xs font-medium text-carbon-700/75">
                         <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                         <span>Uso clínico y kinesiológico</span>
@@ -105,7 +115,7 @@ export default function Products() {
                     </div>
 
                     {/* Button */}
-                    <div className="mt-7">
+                    <div className="mt-6">
                       <button
                         type="button"
                         onClick={() => handleConsultProduct(product.waMessage)}

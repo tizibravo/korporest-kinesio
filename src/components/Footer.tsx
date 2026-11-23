@@ -1,24 +1,6 @@
 import { MapPin, ArrowUp, ArrowRight } from 'lucide-react'
 import { SITE, CONTACTS, NAV_LINKS } from '../data/korporestData'
 
-function InstagramIcon({ className = 'w-4 h-4' }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  )
-}
-
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -60,18 +42,6 @@ export default function Footer() {
             <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white/75">
               <MapPin className="w-4 h-4 text-coral-400 shrink-0" />
               <span>{SITE.address}</span>
-            </div>
-
-            <div className="pt-2">
-              <a
-                href={SITE.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-white/75 hover:text-coral-400 transition-colors bg-white/5 hover:bg-white/10 px-4 py-2.5 rounded-full border border-white/10"
-              >
-                <InstagramIcon className="w-4 h-4 text-coral-400" />
-                <span>{SITE.instagram}</span>
-              </a>
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-import { Users, Target, Award, ArrowRight } from 'lucide-react'
+import { Users, Target, Award, ArrowRight, AlertCircle } from 'lucide-react'
 import { TEAM, CONTACTS } from '../data/korporestData'
 import Reveal from './Reveal'
 
@@ -108,7 +108,18 @@ export default function About() {
 
                   <div className={`h-px ${isCoral ? 'bg-blush-100' : 'bg-sand-200/50'} mb-5`} />
 
-                  <p className="text-sm text-carbon-700/70 leading-[1.7] mb-6">{member.description}</p>
+                  <p className="text-sm text-carbon-700/70 leading-[1.7] mb-4">{member.description}</p>
+
+                  {/* Oncology early referral badge for Vanesa */}
+                  {!isCoral && (
+                    <div className="mb-5 inline-flex items-start gap-2 p-3.5 rounded-xl bg-coral-400/8 border border-coral-300/30">
+                      <AlertCircle className="w-4 h-4 text-coral-500 shrink-0 mt-0.5" />
+                      <span className="text-[0.6875rem] font-semibold text-coral-600 leading-snug">
+                        Derivación temprana al recibir el diagnóstico oncológico: prehabilitación antes, durante y después del tratamiento.
+                      </span>
+                    </div>
+                  )}
+                  {isCoral && <div className="mb-6" />}
 
                   {/* Direct WhatsApp button */}
                   <a

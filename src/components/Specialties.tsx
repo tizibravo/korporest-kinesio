@@ -12,6 +12,7 @@ import {
   Layers,
   Bone,
   Wind,
+  AlertCircle,
 } from 'lucide-react'
 import { SPECIALTIES, PRIMARY_WA } from '../data/korporestData'
 import Reveal from './Reveal'
@@ -144,6 +145,16 @@ export default function Specialties() {
                     <h3 className="font-serif text-lg font-semibold text-carbon-900 group-hover:text-coral-500 transition-colors duration-300">
                       {spec.title}
                     </h3>
+
+                    {/* Highlight badge for early referral */}
+                    {spec.highlight && (
+                      <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-coral-400/10 border border-coral-300/40">
+                        <AlertCircle className="w-3.5 h-3.5 text-coral-500 shrink-0" />
+                        <span className="text-[0.6875rem] font-semibold text-coral-600 leading-tight">
+                          Derivación temprana al recibir el diagnóstico médico
+                        </span>
+                      </div>
+                    )}
 
                     {/* Description */}
                     <p className="mt-2.5 text-xs sm:text-sm text-carbon-700/65 leading-[1.7]">

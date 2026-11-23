@@ -166,7 +166,7 @@ export default function Hero() {
                       </span>
                     </div>
                     <p className="text-xs text-carbon-700/65 mt-2 leading-relaxed">
-                      Rehabilitación vascular, drenaje linfático manual y acompañamiento kinésico oncológico.
+                      Rehabilitación vascular, drenaje linfático manual y acompañamiento oncológico integral: prehabilitación, durante y después del tratamiento.
                     </p>
                   </div>
                 </div>
