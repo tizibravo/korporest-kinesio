@@ -30,10 +30,10 @@ export default function Footer() {
               <img
                 src={IMAGE_ASSETS.logo}
                 alt="KORPOREST"
-                className="h-12 w-auto max-w-[15rem] object-cover object-left rounded-md bg-white"
+                className="h-14 w-auto object-contain object-left bg-white"
               />
               <span className="text-[0.6875rem] font-semibold text-[#7AC7D4] tracking-[0.2em] uppercase mt-1.5">
-                Pergamino · Kinesiología y Fisiatría
+                Kinesiología y Fisiatría
               </span>
             </div>
 

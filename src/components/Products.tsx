@@ -82,14 +82,6 @@ export default function Products() {
                   <div className="h-1 bg-gradient-to-r from-coral-300 via-coral-400 to-sand-300" />
 
                   <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                    {'image' in product && product.image && (
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="mb-5 aspect-video w-full rounded-xl object-cover"
-                      />
-                    )}
-
                     {/* Category pill & icon */}
                     <div className="flex items-center justify-between mb-5">
                       <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.15em] text-coral-500 bg-blush-50 px-3 py-1.5 rounded-full border border-blush-100">

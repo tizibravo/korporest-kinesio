@@ -41,10 +41,10 @@ export default function Navbar() {
             <img
               src={IMAGE_ASSETS.logo}
               alt="KORPOREST"
-              className="h-10 md:h-12 w-auto max-w-[12rem] object-cover object-left rounded-md"
+              className="h-14 w-auto object-contain object-left"
             />
             <span className="text-[0.625rem] font-medium text-[#7AC7D4] tracking-[0.2em] uppercase mt-0.5">
-              Pergamino · Kinesiología
+              Kinesiología
             </span>
           </a>
 

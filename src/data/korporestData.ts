@@ -139,7 +139,6 @@ export const PRODUCTS = [
     description:
       'Vendas de baja elasticidad indicadas para el tratamiento descongestivo del linfedema y la terapia compresiva. Disponibles en distintos anchos.',
     icon: 'Layers',
-    image: IMAGE_ASSETS.vendasTraccionCorta,
     waMessage: 'Hola! Me gustaría consultar sobre disponibilidad y tallas de las Vendas de Tracción Corta.',
   },
   {
