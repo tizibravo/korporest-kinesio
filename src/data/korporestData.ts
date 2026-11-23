@@ -193,30 +193,8 @@ export const NAV_LINKS = [
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Especialidades', href: '#especialidades' },
   { label: 'Productos', href: '#productos' },
-  { label: 'Prevención', href: '#prevencion' },
   { label: 'Reseñas', href: '#resenas' },
   { label: 'Contacto', href: '#contacto' },
-];
-
-export const PREVENTION_GUIDES = [
-  {
-    id: 'vascular-linfatico',
-    title: 'Cuidado Vascular y Linfático',
-    summary: 'Guía de cuidados y prevención para pacientes con patologías vasculares y linfáticas.',
-    available: false,
-  },
-  {
-    id: 'prehabilitacion-oncologica',
-    title: 'Prehabilitación y Acompañamiento Oncológico',
-    summary: 'Guía de preparación y acompañamiento kinesiológico en el proceso oncológico.',
-    available: false,
-  },
-  {
-    id: 'prevencion-postural',
-    title: 'Prevención Postural y Traumatológica',
-    summary: 'Guía de hábitos posturales y prevención de lesiones musculo-esqueléticas.',
-    available: false,
-  },
 ];
 
 export const CONTACT_TOPICS = [
@@ -229,6 +207,5 @@ export const CONTACT_TOPICS = [
   'Prevención de Lesiones',
   'Diagnóstico Kinesiológico',
   'Productos e Insumos',
-  'Prevención y Patologías',
   'Consulta General / Turnos',
 ];

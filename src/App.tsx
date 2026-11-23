@@ -3,7 +3,6 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Specialties from './components/Specialties'
 import Products from './components/Products'
-import Prevention from './components/Prevention'
 import Reviews from './components/Reviews'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -18,7 +17,6 @@ function App() {
         <About />
         <Specialties />
         <Products />
-        <Prevention />
         <Reviews />
         <Contact />
       </main>
